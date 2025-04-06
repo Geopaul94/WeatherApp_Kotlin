@@ -64,5 +64,11 @@ dependencies {
     implementation ("androidx.compose.runtime:runtime-livedata:1.7.8")
     implementation("io.coil-kt.coil3:coil-compose:3.1.0")
     implementation("io.coil-kt.coil3:coil-network-okhttp:3.0.2")
+    implementation ("org.mozilla:rhino:1.7.14")
+    implementation ("androidx.navigation:navigation-compose:2.7.0")
+    implementation ("androidx.compose.ui:ui:1.4.3") // Use the latest version
+    implementation ("androidx.compose.material3:material3:1.1.0") // Material 3 support
+    implementation ("androidx.compose.ui:ui-tooling-preview:1.4.3")
+    debugImplementation ("androidx.compose.ui:ui-tooling:1.4.3")
 
 }
