@@ -70,5 +70,6 @@ dependencies {
     implementation ("androidx.compose.material3:material3:1.1.0") // Material 3 support
     implementation ("androidx.compose.ui:ui-tooling-preview:1.4.3")
     debugImplementation ("androidx.compose.ui:ui-tooling:1.4.3")
+    implementation("org.mozilla:rhino:1.7.14")
 
 }

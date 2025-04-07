@@ -1,6 +1,4 @@
-package com.example.weatherapp
-
-import android.app.sdksandbox.SdkSandboxManager.SdkSandboxProcessDeathCallback
+package com.example.weatherapp.view
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -10,7 +8,6 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.width
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.LocationOn
 import androidx.compose.material.icons.filled.Search
@@ -37,9 +34,9 @@ import coil3.compose.AsyncImage
 import com.example.weatherapp.api.NetworkResponse
 import com.example.weatherapp.api.Weather
 
-import androidx.compose.material3.Card
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
+import com.example.weatherapp.viewmodel.WeatherViewModel
 
 
 @Composable
