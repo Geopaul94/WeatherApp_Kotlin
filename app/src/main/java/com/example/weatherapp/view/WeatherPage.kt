@@ -105,9 +105,6 @@ fun WeatherPage(modifier: Modifier = Modifier, viewModel: WeatherViewModel) {
     }
 }
 
-
-
-
 @Composable
 fun WeatherKeyVal(key: String, value: String) {
     Column(

@@ -71,5 +71,10 @@ dependencies {
     implementation ("androidx.compose.ui:ui-tooling-preview:1.4.3")
     debugImplementation ("androidx.compose.ui:ui-tooling:1.4.3")
     implementation("org.mozilla:rhino:1.7.14")
+    implementation("androidx.compose.material3:material3:1.2.1") // Or latest version
+    implementation("androidx.navigation:navigation-compose:2.7.7") // Add this line! (Use latest version)
+    implementation("androidx.compose.material:material-icons-core:1.6.5") // For icons
+    implementation("androidx.compose.material:material-icons-extended:1.6.5") // For more icons (optional)
+
 
 }

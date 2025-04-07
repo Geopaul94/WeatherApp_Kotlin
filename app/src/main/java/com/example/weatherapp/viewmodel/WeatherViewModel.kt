@@ -5,7 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.weatherapp.Constant
+import com.example.weatherapp.api.Constant
 import com.example.weatherapp.api.NetworkResponse
 import com.example.weatherapp.api.RetrofitInstance
 import com.example.weatherapp.api.Weather
