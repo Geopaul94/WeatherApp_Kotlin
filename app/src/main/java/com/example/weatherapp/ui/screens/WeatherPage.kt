@@ -1,4 +1,4 @@
-package com.example.weatherapp.view
+package com.example.weatherapp.ui.screens
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -31,12 +31,12 @@ import androidx.compose.ui.graphics.vector.rememberVectorPainter
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil3.compose.AsyncImage
-import com.example.weatherapp.api.NetworkResponse
-import com.example.weatherapp.api.Weather
+import com.example.weatherapp.data.repository.NetworkResponse
+import com.example.weatherapp.data.model.Weather
 
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
-import com.example.weatherapp.viewmodel.WeatherViewModel
+import com.example.weatherapp.ui.viewmodel.WeatherViewModel
 
 
 @Composable

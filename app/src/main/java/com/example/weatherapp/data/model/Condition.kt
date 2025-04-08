@@ -1,4 +1,4 @@
-package com.example.weatherapp.api
+package com.example.weatherapp.data.model
 
 data class Condition(
     val code: String,

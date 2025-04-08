@@ -5,24 +5,19 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Calculate
-import androidx.compose.material.icons.filled.WbSunny
 import androidx.compose.material3.* // Import Material 3 components
 import androidx.compose.runtime.* // Import compose runtime functions like remember, State
-import androidx.compose.runtime.livedata.observeAsState // Keep this for your ViewModels
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavDestination.Companion.hierarchy
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.compose.* // Import Navigation Compose functions!
 import bottomNavigationItems
 import com.example.weatherapp.ui.theme.WeatherAppTheme
-import com.example.weatherapp.view.Calculator // Import Calculator composable
-import com.example.weatherapp.view.WeatherPage // Import WeatherPage composable
-import com.example.weatherapp.viewmodel.CalculatorViewModel // Import CalculatorViewModel
-import com.example.weatherapp.viewmodel.WeatherViewModel // Import WeatherViewModel
+import com.example.weatherapp.ui.screens.Calculator // Import Calculator composable
+import com.example.weatherapp.ui.screens.WeatherPage // Import WeatherPage composable
+import com.example.weatherapp.ui.viewmodel.CalculatorViewModel // Import CalculatorViewModel
+import com.example.weatherapp.ui.viewmodel.WeatherViewModel // Import WeatherViewModel
 
 
 @OptIn(ExperimentalMaterial3Api::class) // Opt-in for experimental Scaffold API if needed by your M3 version

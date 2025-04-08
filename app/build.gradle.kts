@@ -75,6 +75,6 @@ dependencies {
     implementation("androidx.navigation:navigation-compose:2.7.7") // Add this line! (Use latest version)
     implementation("androidx.compose.material:material-icons-core:1.6.5") // For icons
     implementation("androidx.compose.material:material-icons-extended:1.6.5") // For more icons (optional)
-
+ 
 
 }

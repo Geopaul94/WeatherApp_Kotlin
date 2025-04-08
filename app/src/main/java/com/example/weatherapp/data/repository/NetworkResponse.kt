@@ -1,4 +1,4 @@
-package com.example.weatherapp.api
+package com.example.weatherapp.data.repository
 
 sealed class NetworkResponse <out T> {
 
