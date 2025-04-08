@@ -16,6 +16,9 @@ class CalculatorViewModel : ViewModel() {
     val resultText: LiveData<String> = _resultText
 
     fun onButtonClick(btn: String) {
+        println("Button pressed: $btn")
+        println("Before update - Equation: ${_equationText.value}, Result: ${_resultText.value}")
+
         if (_equationText.value.isNullOrEmpty()) {
             if (btn == "AC" || btn == "C" || btn == "=") return
         }
@@ -23,9 +26,15 @@ class CalculatorViewModel : ViewModel() {
         when (btn) {
             "AC" -> resetCalculator()
             "C" -> backspace()
-            "=" -> calculateFinalResult()
+            "=" -> {
+                if (!_equationText.value.isNullOrEmpty()) {
+                    calculateFinalResult()
+                }
+            }
             else -> appendToEquation(btn)
         }
+
+        println("After update - Equation: ${_equationText.value}, Result: ${_resultText.value}")
     }
 
     private fun resetCalculator() {
@@ -34,12 +43,17 @@ class CalculatorViewModel : ViewModel() {
     }
 
     private fun backspace() {
-        _equationText.value = if (_equationText.value.isNullOrEmpty()) "" else _equationText.value?.dropLast(1)
+        if (!_equationText.value.isNullOrEmpty()) {
+            _equationText.value = _equationText.value?.dropLast(1)?.ifEmpty { "" }
+        }
     }
 
+
+
     private fun calculateFinalResult() {
-        if (_equationText.value == _resultText.value) return
-        _equationText.value = _resultText.value
+        if (_resultText.value != "Error") {
+            _equationText.value = _resultText.value
+        }
     }
 
     private fun appendToEquation(btn: String) {
@@ -60,6 +74,10 @@ class CalculatorViewModel : ViewModel() {
 
     private fun updateEquation(newText: String) {
         _equationText.value = newText
+        if (newText.isEmpty()) {
+            _resultText.value = "0"
+            return
+        }
         try {
             _resultText.value = calculateResult(newText)
         } catch (e: Exception) {
@@ -68,11 +86,28 @@ class CalculatorViewModel : ViewModel() {
     }
 
     private fun calculateResult(equation: String): String {
-        val context: Context = Context.enter()
-        context.optimizationLevel = -1
-        val scriptable: Scriptable = context.initStandardObjects()
-        val result = context.evaluateString(scriptable, equation, "Javascript", 1, null).toString()
-        Context.exit()
-        return if (result.endsWith(".0")) result.dropLast(2) else result
+        return try {
+            // Validate equation
+            if (!equation.matches(Regex(".*[0-9].*"))) {
+                return "Error"
+            }
+
+            val context: Context = Context.enter()
+            context.optimizationLevel = -1
+            val scriptable: Scriptable = context.initStandardObjects()
+            val result = context.evaluateString(scriptable, equation, "Javascript", 1, null).toString()
+            Context.exit()
+
+            if (result.contains("Infinity") || result.contains("NaN")) {
+                "Error"
+            } else if (result.endsWith(".0")) {
+                result.dropLast(2)
+            } else {
+                result
+            }
+        } catch (e: Exception) {
+            println("Error evaluating equation: ${e.message}")
+            "Error"
+        }
     }
 }
